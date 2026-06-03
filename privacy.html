@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Echo Privacy Policy</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #fff8f2;
+      --paper: #ffffff;
+      --ink: #131b2a;
+      --muted: #566072;
+      --line: #efd7c4;
+      --accent: #b66b38;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.62;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 20px 72px;
+    }
+    article {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 34px;
+      box-shadow: 0 20px 60px rgba(151, 89, 38, 0.08);
+    }
+    h1, h2 { line-height: 1.2; }
+    h1 { margin: 0 0 8px; font-size: 34px; }
+    h2 { margin: 34px 0 10px; font-size: 21px; }
+    p, li { color: var(--muted); font-size: 16px; }
+    ul { padding-left: 22px; }
+    a { color: var(--accent); }
+    .meta { margin: 0 0 26px; color: var(--muted); }
+    .notice {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fffaf6;
+      color: var(--muted);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 4px;
+      font-size: 15px;
+    }
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      border: 1px solid var(--line);
+      padding: 10px;
+      color: var(--muted);
+    }
+    th { color: var(--ink); background: #fffaf6; }
+    @media (max-width: 640px) {
+      main { padding: 20px 12px 48px; }
+      article { padding: 24px 18px; border-radius: 14px; }
+      h1 { font-size: 28px; }
+      table, thead, tbody, tr, th, td { display: block; width: 100%; }
+      th { border-bottom: 0; }
+      td { border-top: 0; }
+      tr + tr { margin-top: 10px; display: block; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <article>
+      <h1>Echo Privacy Policy</h1>
+      <p class="meta">Effective date: June 3, 2026</p>
+
+      <p class="notice">
+        This Privacy Policy is provided as a practical launch draft for Echo. It is not legal advice. Before submitting Echo to the App Store or making the app broadly available, review it with qualified legal counsel and replace CONTACT_EMAIL and any domain placeholders with working public details.
+      </p>
+
+      <h2>1. Overview</h2>
+      <p>
+        Echo is a private thought-recording and AI reflection app provided by YONGWEI RUAN. This Privacy Policy explains what information Echo collects, how we use it, how third-party services help us operate Echo, and how you can manage or delete your information.
+      </p>
+      <p>
+        Echo is designed for personal thoughts, ideas, images, and voice notes. Because this content may be sensitive, we aim to collect only what is needed to provide the service, protect the app, process subscriptions, and improve reliability.
+      </p>
+
+      <h2>2. Information we collect</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Examples</th>
+            <th>Primary purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Account information</td>
+            <td>Email address, Apple or Google sign-in identifiers, Supabase user ID, anonymous guest account ID, profile name, avatar.</td>
+            <td>Authentication, account management, personalization, quota and entitlement tracking.</td>
+          </tr>
+          <tr>
+            <td>User content</td>
+            <td>Thought text, uploaded images, voice recordings, transcriptions, image descriptions, daily reflections, related-thought links.</td>
+            <td>Saving your thoughts, showing your history, generating AI organization and reflections.</td>
+          </tr>
+          <tr>
+            <td>AI processing data</td>
+            <td>Prompts derived from your thoughts, generated tags/categories, embeddings, AI job status, provider metadata, usage counters.</td>
+            <td>AI analysis, semantic search, related idea discovery, Daily Review, cost and quota control.</td>
+          </tr>
+          <tr>
+            <td>Subscription data</td>
+            <td>RevenueCat customer ID, App Store product ID, entitlement status, renewal/expiration state, purchase environment.</td>
+            <td>Providing Echo Pro, restoring purchases, applying paid quotas, fraud prevention, support.</td>
+          </tr>
+          <tr>
+            <td>Technical data</td>
+            <td>App interactions needed for functionality, diagnostic logs, function errors, timestamps, network metadata normally handled by backend providers.</td>
+            <td>Security, debugging, service reliability, abuse prevention.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>3. How we use information</h2>
+      <ul>
+        <li>To create, authenticate, and maintain your Echo account, including guest accounts.</li>
+        <li>To save, display, and organize your thoughts, images, voice notes, and profile information.</li>
+        <li>To provide AI features such as transcription, image understanding, categorization, embeddings, related ideas, and Daily Review.</li>
+        <li>To apply Free and Pro usage limits and fair-use protections.</li>
+        <li>To process subscriptions, restore purchases, and sync entitlement status through RevenueCat and the App Store.</li>
+        <li>To protect Echo from abuse, debug issues, improve reliability, and comply with legal obligations.</li>
+      </ul>
+
+      <h2>4. AI and model providers</h2>
+      <p>
+        Echo sends relevant parts of your content to backend AI providers through Supabase Edge Functions when needed to provide AI features. For example, Echo may send thought text for categorization, an image for description, audio for transcription, or text for embeddings and related-thought matching.
+      </p>
+      <p>
+        We do not sell your thoughts. We do not intentionally use your private thoughts for advertising. We do not claim that AI output is medical, mental-health, legal, financial, or professional advice.
+      </p>
+
+      <h2>5. Third-party services</h2>
+      <p>Echo currently relies on service providers that help operate the app:</p>
+      <ul>
+        <li>Supabase: authentication, database, private storage, and Edge Functions.</li>
+        <li>Apple: Sign in with Apple, App Store purchases, subscription management, and payment processing.</li>
+        <li>Google: Google sign-in where you choose to use it.</li>
+        <li>RevenueCat: subscription entitlement management and purchase event syncing.</li>
+        <li>AI providers configured in Echo's backend: transcription, image understanding, embeddings, analysis, and reflections.</li>
+      </ul>
+      <p>
+        These providers process information according to their own terms and privacy practices. We share only what is reasonably needed for them to provide their services to Echo.
+      </p>
+
+      <h2>6. Storage and security</h2>
+      <p>
+        Echo stores user content in Supabase databases and private Supabase Storage buckets. User records are associated with your Echo account ID and protected by row-level security and authenticated access controls. No online service can be guaranteed perfectly secure, but we use reasonable technical and organizational measures to protect your information.
+      </p>
+
+      <h2>7. Tracking, advertising, and sale of data</h2>
+      <p>
+        Echo does not use your content for third-party advertising, does not sell your personal information, and does not use third-party advertising trackers in the app. If Echo's practices change, we will update this Privacy Policy and relevant app-store privacy disclosures.
+      </p>
+
+      <h2>8. Retention</h2>
+      <p>
+        Echo keeps your account information and saved content while your account remains active or as needed to provide the service. AI job records, usage counters, entitlement records, and diagnostic metadata may be kept as needed for reliability, quota enforcement, subscription support, security, legal compliance, and dispute resolution.
+      </p>
+
+      <h2>9. Your choices</h2>
+      <ul>
+        <li>You can choose what thoughts, images, and audio to submit.</li>
+        <li>You can use supported sign-in methods or guest access where available.</li>
+        <li>You can manage or cancel App Store subscriptions through your Apple Account settings.</li>
+        <li>You can initiate account deletion from Echo's settings.</li>
+        <li>You can contact us at CONTACT_EMAIL for privacy questions or requests.</li>
+      </ul>
+
+      <h2>10. Account deletion</h2>
+      <p>
+        You can initiate deletion from Echo's account settings. Deletion removes your Echo account and associated personal data from active Echo records, including thoughts and private media, except where limited retention is required for legal, billing, fraud-prevention, security, or dispute-resolution reasons.
+      </p>
+      <p>
+        Deleting your Echo account does not automatically cancel an App Store subscription. You must cancel subscriptions through your Apple Account subscription settings. See <a href="./delete-account.html">Delete Account</a> for more details.
+      </p>
+
+      <h2>11. Children</h2>
+      <p>
+        Echo is not intended for children under 13 or for anyone below the minimum age required by applicable law to use the service. If you believe a child has provided personal information through Echo, contact us at CONTACT_EMAIL.
+      </p>
+
+      <h2>12. International use</h2>
+      <p>
+        Echo's backend services may process and store information in countries different from where you live, including the United States. By using Echo, you understand that your information may be processed in those locations.
+      </p>
+
+      <h2>13. Changes to this Privacy Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time. If changes are material, we will take reasonable steps to notify you, such as updating the effective date, posting a notice, or showing an in-app message.
+      </p>
+
+      <h2>14. Contact</h2>
+      <p>
+        For privacy questions, requests, or concerns, contact YONGWEI RUAN at CONTACT_EMAIL.
+      </p>
+    </article>
+  </main>
+</body>
+</html>
