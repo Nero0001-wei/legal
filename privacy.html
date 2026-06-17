@@ -77,7 +77,7 @@
   <main>
     <article>
       <h1>Echora Privacy Policy</h1>
-      <p class="meta">Effective date: June 8, 2026</p>
+      <p class="meta">Effective date: June 17, 2026</p>
 
       <p class="notice">
         This Privacy Policy is provided for general information and is not legal advice.
@@ -108,13 +108,13 @@
           </tr>
           <tr>
             <td>User content</td>
-            <td>Thought text, uploaded images, voice recordings, transcriptions, image descriptions, daily reflections, related-thought links.</td>
-            <td>Saving your thoughts, showing your history, generating AI organization and reflections.</td>
+            <td>Thought text, uploaded image attachments, image captions, voice recordings, transcriptions, Review conversation messages, daily reflections, related-thought links.</td>
+            <td>Saving your thoughts, showing your history, and generating AI organization and reflections after you allow AI data sharing.</td>
           </tr>
           <tr>
             <td>AI processing data</td>
             <td>Prompts derived from your thoughts, generated tags/categories, embeddings, AI job status, provider metadata, usage counters.</td>
-            <td>AI analysis, semantic search, related idea discovery, Daily Review, cost and quota control.</td>
+            <td>AI transcription, analysis, semantic search, related idea discovery, Review replies, Daily Review, cost and quota control.</td>
           </tr>
           <tr>
             <td>Subscription data</td>
@@ -133,15 +133,21 @@
       <ul>
         <li>To create, authenticate, and maintain your Echora account, including guest accounts.</li>
         <li>To save, display, and organize your thoughts, images, voice notes, and profile information.</li>
-        <li>To provide AI features such as transcription, image understanding, categorization, embeddings, related ideas, and Daily Review.</li>
+        <li>To provide AI features after you allow AI data sharing, such as transcription, categorization, embeddings, related ideas, Review replies, and Daily Review.</li>
         <li>To apply Free and Pro usage limits and fair-use protections.</li>
         <li>To process subscriptions, restore purchases, and sync entitlement status through RevenueCat and the App Store.</li>
         <li>To protect Echora from abuse, debug issues, improve reliability, and comply with legal obligations.</li>
       </ul>
 
-      <h2>4. AI and model providers</h2>
+      <h2>4. AI data sharing and consent</h2>
       <p>
-        Echora sends relevant parts of your content to backend AI providers through Supabase Edge Functions when needed to provide AI features. For example, Echora may send thought text for categorization, an image for description, audio for transcription, or text for embeddings and related-thought matching.
+        Echora asks for your permission before sending personal content to a third-party AI service. If you allow AI features, Echora may send text thoughts, image captions, voice recordings for transcription, transcribed voice text, Review conversation messages, and recent thought content used for Daily Review, tags, embeddings, and related thoughts to Google Gemini, provided by Google, through Echora Supabase Edge Functions.
+      </p>
+      <p>
+        Current image attachments are stored privately in Supabase Storage and are not sent to Google Gemini for image analysis. If Echora later adds image analysis that sends image files to an AI provider, we will update this Privacy Policy and ask for any required permission before that sharing occurs.
+      </p>
+      <p>
+        You can decline AI features or turn them off from Account Management. If AI features are off, Echora keeps allowing basic thought and image-caption saving, but it will not send your personal content to Google Gemini for transcription, Review replies, tags, embeddings, or related thoughts.
       </p>
       <p>
         We do not sell your thoughts. We do not intentionally use your private thoughts for advertising. We do not claim that AI output is medical, mental-health, legal, financial, or professional advice.
@@ -155,10 +161,10 @@
         <li>Google: Google sign-in where you choose to use it.</li>
         <li>RevenueCat: subscription entitlement management and purchase event syncing.</li>
         <li>Sentry: crash and error diagnostics so we can identify reliability problems. Echora configures Sentry not to intentionally attach private thought content, request bodies, or default personal information to events.</li>
-        <li>AI providers configured in Echora's backend, which may include OpenAI, Google Gemini, Anthropic, or DeepSeek depending on current backend configuration: transcription, image understanding, embeddings, analysis, and reflections.</li>
+        <li>Google Gemini, provided by Google: AI transcription, embeddings, analysis, Review replies, related thoughts, and Daily Reviews after you allow AI data sharing.</li>
       </ul>
       <p>
-        These providers process information according to their own terms and privacy practices. We share only what is reasonably needed for them to provide their services to Echora, and we do not share your private content with third-party advertising networks.
+        These providers process information according to their own terms and privacy practices. We share only what is reasonably needed for them to provide their services to Echora, require service providers to protect personal data under their applicable data protection, security, and confidentiality terms, and do not share your private content with third-party advertising networks.
       </p>
 
       <h2>6. Storage and security</h2>
@@ -179,6 +185,7 @@
       <h2>9. Your choices</h2>
       <ul>
         <li>You can choose what thoughts, images, and audio to submit, and you can stop submitting any category of content at any time.</li>
+        <li>You can decline or turn off Echora AI features. When AI features are off, Echora will not send your personal content to Google Gemini.</li>
         <li>You can use supported sign-in methods or guest access where available.</li>
         <li>You can withdraw camera, microphone, and photo library permissions in iOS Settings. Some image or voice features may stop working if you withdraw those permissions.</li>
         <li>You can manage or cancel App Store subscriptions through your Apple Account settings.</li>
