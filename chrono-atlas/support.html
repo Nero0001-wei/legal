@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Help, purchase, and contact information for the Chrono Atlas iOS app.">
   <title>Chrono Atlas Support</title>
+  <script>
+    (() => {
+      const supportedLanguages = ["en", "zh-Hans"];
+      const queryLanguage = new URLSearchParams(window.location.search).get("lang");
+      let savedLanguage = null;
+      try {
+        savedLanguage = window.localStorage.getItem("chrono-atlas-page-language");
+      } catch (_) {
+        // The page still works when storage is unavailable.
+      }
+      const browserLanguage = navigator.language.toLowerCase().startsWith("zh")
+        ? "zh-Hans"
+        : "en";
+      document.documentElement.lang = supportedLanguages.includes(queryLanguage)
+        ? queryLanguage
+        : supportedLanguages.includes(savedLanguage)
+          ? savedLanguage
+          : browserLanguage;
+    })();
+  </script>
   <style>
     :root {
       color-scheme: light;
@@ -35,6 +55,38 @@
       padding: 36px;
       box-shadow: 0 18px 54px rgba(85, 58, 25, 0.09);
     }
+    .language-switcher {
+      display: flex;
+      justify-content: flex-end;
+      gap: 4px;
+      margin: 0 0 14px;
+    }
+    .language-switcher button {
+      min-height: 40px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--muted);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .language-switcher button[aria-pressed="true"] {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+    .language-switcher button:focus-visible {
+      outline: 3px solid rgba(166, 95, 34, 0.28);
+      outline-offset: 2px;
+    }
+    .language-panel { display: none; }
+    html[lang="en"] .language-panel[data-language-panel="en"],
+    html[lang="zh-Hans"] .language-panel[data-language-panel="zh-Hans"] {
+      display: block;
+    }
     h1, h2 { line-height: 1.25; }
     h1 { margin: 0 0 8px; font-size: 34px; }
     h2 { margin: 34px 0 10px; font-size: 21px; }
@@ -58,7 +110,12 @@
 </head>
 <body>
   <main>
-    <article>
+    <nav class="language-switcher" aria-label="Language / 语言">
+      <button type="button" data-language="zh-Hans" aria-pressed="false">简体中文</button>
+      <button type="button" data-language="en" aria-pressed="false">English</button>
+    </nav>
+
+    <article class="language-panel" data-language-panel="en" lang="en">
       <h1>Chrono Atlas Support</h1>
       <p class="meta">Updated August 11, 2026</p>
 
@@ -73,20 +130,20 @@
         Chrono Atlas lets you move through historical periods, explore civilizations on a world map, read landmark stories, complete short interactions, and unlock collectible history cards. No account or sign-in is required.
       </p>
 
-      <h2>What is Complete Atlas?</h2>
+      <h2>What is Landmark Atlas — Lifetime?</h2>
       <p>
-        Complete Atlas is an optional, one-time, non-consumable in-app purchase that permanently unlocks every premium landmark available in Chrono Atlas. It is not a subscription and does not renew.
+        Landmark Atlas — Lifetime is an optional, one-time, non-consumable in-app purchase that permanently unlocks every premium landmark available in Chrono Atlas. It is not a subscription and does not renew.
       </p>
       <p>
-        You can still browse every civilization without purchasing Complete Atlas. Free landmarks remain available, while locked landmark cards can be previewed before you decide whether to unlock the complete collection.
+        You can still browse every civilization without purchasing Landmark Atlas — Lifetime. Free landmarks remain available, while locked landmark cards can be previewed before you decide whether to unlock the complete collection.
       </p>
 
-      <h2>How do I purchase Complete Atlas?</h2>
+      <h2>How do I purchase Landmark Atlas — Lifetime?</h2>
       <ol>
         <li>Open any civilization from the world map.</li>
         <li>Tap a landmark card marked with a lock.</li>
         <li>Review the one-time price shown by the App Store.</li>
-        <li>Tap <strong>Unlock Forever</strong> and confirm the purchase with Apple.</li>
+        <li>Tap the purchase button and confirm the purchase with Apple.</li>
       </ol>
       <p>
         Apple processes the payment. Chrono Atlas does not receive or store your full payment card details.
@@ -94,12 +151,12 @@
 
       <h2>Why is there a Restore Purchases button?</h2>
       <p>
-        Restoring does not make a new purchase and does not charge you again. It asks Apple to synchronize an existing Complete Atlas purchase when you reinstall the app, move to another device, or believe the app is not showing your entitlement correctly.
+        Restoring does not make a new purchase and does not charge you again. It asks Apple to synchronize an existing Landmark Atlas — Lifetime purchase when you reinstall the app, move to another device, or believe the app is not showing your entitlement correctly.
       </p>
 
-      <h2>How do I restore Complete Atlas?</h2>
+      <h2>How do I restore Landmark Atlas — Lifetime?</h2>
       <ol>
-        <li>Open a locked landmark to show the Complete Atlas screen.</li>
+        <li>Open a locked landmark to show the Landmark Atlas screen.</li>
         <li>Tap <strong>Restore Purchases</strong>.</li>
         <li>If Apple asks, authenticate with the Apple Account that made or received the eligible purchase.</li>
       </ol>
@@ -107,12 +164,12 @@
         StoreKit normally restores eligible purchases automatically. Use the button when the unlocked state has not appeared. If no eligible purchase is associated with the current Apple Account, Chrono Atlas will report that there is nothing to restore.
       </p>
 
-      <h2>Does Complete Atlas support Family Sharing?</h2>
+      <h2>Does Landmark Atlas — Lifetime support Family Sharing?</h2>
       <p>
-        Complete Atlas supports Apple's Family Sharing where available. Family members must belong to an eligible Family Sharing group and meet Apple's purchase-sharing requirements. Availability and synchronization are controlled by Apple and can vary by account or storefront.
+        Landmark Atlas — Lifetime supports Apple's Family Sharing where available. Family members must belong to an eligible Family Sharing group and meet Apple's purchase-sharing requirements. Availability and synchronization are controlled by Apple and can vary by account or storefront.
       </p>
 
-      <h2>I purchased Complete Atlas, but it is still locked</h2>
+      <h2>I purchased Landmark Atlas — Lifetime, but it is still locked</h2>
       <ol>
         <li>Confirm that your device has an internet connection and can reach the App Store.</li>
         <li>Close and reopen Chrono Atlas.</li>
@@ -138,7 +195,7 @@
 
       <h2>Where is my progress stored?</h2>
       <p>
-        Your completed landmarks, unlocked cards, and recent exploration are stored only on your current device. Chrono Atlas does not currently provide accounts, cloud backup, or cross-device progress synchronization. Uninstalling the app may remove this local progress. A Complete Atlas purchase is managed separately by Apple and can be restored with the eligible Apple Account.
+        Your completed landmarks, unlocked cards, and recent exploration are stored only on your current device. Chrono Atlas does not currently provide accounts, cloud backup, or cross-device progress synchronization. Uninstalling the app may remove this local progress. A Landmark Atlas — Lifetime purchase is managed separately by Apple and can be restored with the eligible Apple Account.
       </p>
 
       <h2>How do I change the app language?</h2>
@@ -152,7 +209,7 @@
 
       <h2>How do I use story narration?</h2>
       <p>
-        Open a landmark story and use the narration control to start, pause, continue, or stop reading. Narration uses an available iOS system voice for the current content language. Voice availability can vary by device and installed system voices.
+        Open a landmark story and use the narration control to start, pause, continue, or stop narration. The app downloads prerecorded narration for the current content language when available. If recorded audio is unavailable, it falls back to an available iOS system voice. System voice availability can vary by device and installed voices.
       </p>
 
       <h2>How do I save an unlocked card?</h2>
@@ -180,6 +237,170 @@
         For Chrono Atlas questions, feedback, or bug reports, contact YONGWEI RUAN at <a href="mailto:echora.support@icloud.com?subject=%5BChrono%20Atlas%5D%20Support">echora.support@icloud.com</a>.
       </p>
     </article>
+
+    <article class="language-panel" data-language-panel="zh-Hans" lang="zh-Hans">
+      <h1>Chrono Atlas 技术支持</h1>
+      <p class="meta">更新日期：2026 年 8 月 11 日</p>
+
+      <p class="contact">
+        如果你需要帮助，或想报告历史内容问题，请发送电子邮件至
+        <a href="mailto:echora.support@icloud.com?subject=%5BChrono%20Atlas%5D%20Support">echora.support@icloud.com</a>。
+        请在邮件主题开头注明 <strong>[Chrono Atlas]</strong>。
+      </p>
+
+      <h2>开始使用</h2>
+      <p>
+        你可以在 Chrono Atlas 中切换历史时期，通过世界地图探索文明，阅读地标故事，完成简短互动，并解锁可收集的历史图鉴卡片。App 无需注册或登录账户。
+      </p>
+
+      <h2>什么是“历史地标图谱 — 永久解锁”？</h2>
+      <p>
+        “历史地标图谱 — 永久解锁”是一项可选的一次性非消耗型 App 内购买。购买后可以永久解锁 Chrono Atlas 中的全部高级地标。该项目不是订阅，也不会自动续费。
+      </p>
+      <p>
+        不购买也可以浏览所有文明。免费地标会一直开放；上锁的地标卡片也可以先查看预览，再决定是否解锁完整内容。
+      </p>
+
+      <h2>如何购买“历史地标图谱 — 永久解锁”？</h2>
+      <ol>
+        <li>从世界地图打开任意文明。</li>
+        <li>点击带有锁标记的地标卡片。</li>
+        <li>查看 App Store 显示的一次性购买价格。</li>
+        <li>点击购买按钮，并通过 Apple 确认购买。</li>
+      </ol>
+      <p>
+        付款由 Apple 处理。Chrono Atlas 不会收到或保存你的完整支付卡信息。
+      </p>
+
+      <h2>为什么会有“恢复购买”按钮？</h2>
+      <p>
+        恢复购买不会发起新的购买，也不会再次扣费。当你重新安装 App、更换设备，或 App 没有正确显示购买权益时，该功能会请求 Apple 同步已有的“历史地标图谱 — 永久解锁”购买记录。
+      </p>
+
+      <h2>如何恢复“历史地标图谱 — 永久解锁”？</h2>
+      <ol>
+        <li>打开一个上锁的地标，进入历史地标图谱页面。</li>
+        <li>点击<strong>恢复购买</strong>。</li>
+        <li>如果 Apple 要求验证，请使用购买该项目或符合共享条件的 Apple 账户完成验证。</li>
+      </ol>
+      <p>
+        StoreKit 通常会自动恢复符合条件的购买。如果解锁状态没有出现，可以手动点击该按钮。若当前 Apple 账户没有符合条件的购买，Chrono Atlas 会提示没有可恢复的项目。
+      </p>
+
+      <h2>“历史地标图谱 — 永久解锁”支持家人共享吗？</h2>
+      <p>
+        在 Apple 提供该功能的地区和账户中，“历史地标图谱 — 永久解锁”支持家人共享。家庭成员需要加入符合条件的“家人共享”群组，并满足 Apple 的购买项目共享要求。具体可用性和同步状态由 Apple 管理，可能因账户或 App Store 地区而异。
+      </p>
+
+      <h2>已经购买，但内容仍然上锁</h2>
+      <ol>
+        <li>确认设备已连接互联网，并且可以访问 App Store。</li>
+        <li>关闭并重新打开 Chrono Atlas。</li>
+        <li>点击<strong>恢复购买</strong>。</li>
+        <li>确认 App Store 当前使用的是与该购买关联的 Apple 账户。</li>
+        <li>安装最新版本的 Chrono Atlas。</li>
+      </ol>
+      <p>
+        如果问题仍然存在，请联系技术支持，并附上 App 版本、设备型号、iOS 版本和错误提示截图。请勿发送 Apple 账户密码、支付卡号或其他敏感支付信息。
+      </p>
+
+      <h2>如何申请退款？</h2>
+      <p>
+        App Store 购买和退款决定由 Apple 管理。如需申请或查看退款，请访问
+        <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a>，
+        并使用购买时的 Apple 账户登录。如果 Apple 退款或撤销购买，高级地标可能会重新上锁。已有的本地探索进度不会被主动删除。
+      </p>
+
+      <h2>Chrono Atlas 必须联网使用吗？</h2>
+      <p>
+        Chrono Atlas 会连接内容分发服务下载历史内容、图片和旁白音频，也会连接 Apple 服务获取商品信息、处理购买与恢复，并检查更新。已下载的内容在离线时可能仍可使用，但首次下载内容和同步购买状态需要网络连接。
+      </p>
+
+      <h2>探索进度保存在哪里？</h2>
+      <p>
+        已完成的地标、已解锁的卡片和最近探索记录只保存在当前设备上。Chrono Atlas 目前不提供账户、云端备份或跨设备进度同步。卸载 App 可能会删除这些本地进度。“历史地标图谱 — 永久解锁”购买由 Apple 单独管理，可以使用符合条件的 Apple 账户恢复。
+      </p>
+
+      <h2>如何更改 App 语言？</h2>
+      <ol>
+        <li>打开 iOS“设置”。</li>
+        <li>打开“App”，然后选择 Chrono Atlas。</li>
+        <li>选择“语言”，再选择 English 或简体中文。</li>
+        <li>重新打开 Chrono Atlas。</li>
+      </ol>
+      <p>如果设备使用其他语言，Chrono Atlas 默认显示英文。</p>
+
+      <h2>如何使用故事旁白？</h2>
+      <p>
+        打开地标故事后，可以使用旁白控件开始、暂停、继续或停止播放。App 会优先下载当前内容语言对应的预录旁白；如果录制音频不可用，则改用设备上可用的 iOS 系统语音。系统语音会因设备和已安装的语音而有所不同。
+      </p>
+
+      <h2>如何保存已解锁的卡片？</h2>
+      <p>
+        在图鉴中打开已解锁的卡片，显示卡片预览，然后点击保存按钮。Chrono Atlas 会请求向系统照片添加图片的权限。如果无法保存，请打开 iOS“设置”，选择 Chrono Atlas，并允许 App 添加照片。
+      </p>
+
+      <h2>报告问题</h2>
+      <p>联系技术支持时，请提供：</p>
+      <ul>
+        <li>iPhone 或 iPad 型号及 iOS 版本。</li>
+        <li>Chrono Atlas 的 App 版本。</li>
+        <li>出现问题的页面、文明或地标。</li>
+        <li>问题的简短说明，必要时可附截图。</li>
+      </ul>
+      <p>请勿发送密码或与问题无关的敏感个人信息。</p>
+
+      <h2>隐私政策</h2>
+      <p>
+        有关本地探索进度、内容分发、Apple 服务与购买、照片权限和技术支持通信的说明，请阅读
+        <a href="./privacy.html">Chrono Atlas 隐私政策</a>。
+      </p>
+
+      <h2>联系方式</h2>
+      <p>
+        如有 Chrono Atlas 使用问题、反馈或错误报告，请发送电子邮件联系 YONGWEI RUAN：
+        <a href="mailto:echora.support@icloud.com?subject=%5BChrono%20Atlas%5D%20Support">echora.support@icloud.com</a>。
+      </p>
+    </article>
   </main>
+  <script>
+    (() => {
+      const metadata = {
+        en: {
+          title: "Chrono Atlas Support",
+          description: "Help, purchase, and contact information for the Chrono Atlas iOS app."
+        },
+        "zh-Hans": {
+          title: "Chrono Atlas 技术支持",
+          description: "Chrono Atlas iOS App 使用帮助、购买说明和联系方式。"
+        }
+      };
+      const buttons = document.querySelectorAll("[data-language]");
+      const description = document.querySelector('meta[name="description"]');
+
+      function setLanguage(language) {
+        const selectedLanguage = metadata[language] ? language : "en";
+        document.documentElement.lang = selectedLanguage;
+        document.title = metadata[selectedLanguage].title;
+        description.content = metadata[selectedLanguage].description;
+        buttons.forEach((button) => {
+          button.setAttribute(
+            "aria-pressed",
+            String(button.dataset.language === selectedLanguage)
+          );
+        });
+        try {
+          window.localStorage.setItem("chrono-atlas-page-language", selectedLanguage);
+        } catch (_) {
+          // The selected language still applies for this page view.
+        }
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.dataset.language));
+      });
+      setLanguage(document.documentElement.lang);
+    })();
+  </script>
 </body>
 </html>
