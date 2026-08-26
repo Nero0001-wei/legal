@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Privacy Policy for the Chrono Atlas iOS app.">
   <title>Chrono Atlas Privacy Policy</title>
+  <script>
+    (() => {
+      const supportedLanguages = ["en", "zh-Hans"];
+      const queryLanguage = new URLSearchParams(window.location.search).get("lang");
+      let savedLanguage = null;
+      try {
+        savedLanguage = window.localStorage.getItem("chrono-atlas-page-language");
+      } catch (_) {
+        // The page still works when storage is unavailable.
+      }
+      const browserLanguage = navigator.language.toLowerCase().startsWith("zh")
+        ? "zh-Hans"
+        : "en";
+      document.documentElement.lang = supportedLanguages.includes(queryLanguage)
+        ? queryLanguage
+        : supportedLanguages.includes(savedLanguage)
+          ? savedLanguage
+          : browserLanguage;
+    })();
+  </script>
   <style>
     :root {
       color-scheme: light;
@@ -41,6 +61,46 @@
       border: 1px solid var(--line);
       border-radius: 20px;
       box-shadow: 0 18px 54px rgba(85, 58, 25, 0.09);
+    }
+
+    .language-switcher {
+      display: flex;
+      justify-content: flex-end;
+      gap: 4px;
+      margin: 0 0 14px;
+    }
+
+    .language-switcher button {
+      min-height: 40px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--muted);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .language-switcher button[aria-pressed="true"] {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .language-switcher button:focus-visible {
+      outline: 3px solid rgba(148, 80, 25, 0.28);
+      outline-offset: 2px;
+    }
+
+    .language-panel {
+      display: none;
+    }
+
+    html[lang="en"] .language-panel[data-language-panel="en"],
+    html[lang="zh-Hans"] .language-panel[data-language-panel="zh-Hans"] {
+      display: block;
     }
 
     h1,
@@ -108,7 +168,12 @@
 </head>
 <body>
   <main>
-    <article>
+    <nav class="language-switcher" aria-label="Language / 语言">
+      <button type="button" data-language="zh-Hans" aria-pressed="false">简体中文</button>
+      <button type="button" data-language="en" aria-pressed="false">English</button>
+    </nav>
+
+    <article class="language-panel" data-language-panel="en" lang="en">
       <h1>Chrono Atlas Privacy Policy</h1>
       <p class="meta">Effective date: August 11, 2026</p>
 
@@ -198,7 +263,7 @@
         <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.
       </p>
 
-      <h2>5. Photos and system speech</h2>
+      <h2>5. Photos and story narration</h2>
       <ul>
         <li>
           If you choose to save a Codex card, Chrono Atlas requests add-only Photos
@@ -207,9 +272,11 @@
           permission in iOS Settings.
         </li>
         <li>
-          Story narration uses Apple's system speech capabilities. Chrono Atlas does
-          not record your voice or send your exploration progress to our content
-          delivery service for narration.
+          Story narration may download prerecorded audio from Chrono Atlas's content
+          delivery service. If recorded audio is unavailable, the app may use Apple's
+          system speech capabilities. Chrono Atlas does not record your voice, upload
+          narration text, or send your exploration progress to the content delivery
+          service for narration.
         </li>
       </ul>
 
@@ -332,6 +399,172 @@
         <a href="mailto:echora.support@icloud.com">echora.support@icloud.com</a>.
       </p>
     </article>
+
+    <article class="language-panel" data-language-panel="zh-Hans" lang="zh-Hans">
+      <h1>Chrono Atlas 隐私政策</h1>
+      <p class="meta">生效日期：2026 年 8 月 11 日</p>
+
+      <p class="summary">
+        Chrono Atlas 无需注册账户，也不包含广告、第三方分析或跨 App 跟踪。探索进度保存在你的设备上。App 会连接 Chrono Atlas 的内容分发服务和 Apple 服务，用于提供内容、检查更新和处理购买。
+      </p>
+
+      <h2>1. 我们是谁</h2>
+      <p>
+        Chrono Atlas 是由 YONGWEI RUAN 提供的历史教育探索 App。本隐私政策说明 Chrono Atlas iOS App 如何处理信息，以及你可以如何联系我们处理隐私问题。
+      </p>
+
+      <h2>2. 保存在设备上的信息</h2>
+      <p>Chrono Atlas 无需创建账户。以下信息保存在你的设备本地：</p>
+      <ul>
+        <li>已完成的地标、已解锁的图鉴卡片、最近活动以及相关探索进度。</li>
+        <li>App 偏好设置，包括更新提醒偏好。</li>
+        <li>为提高加载速度和支持离线使用而缓存的历史内容与图片。</li>
+        <li>用于判断高级内容是否已解锁的购买权益状态。Chrono Atlas 不会保存你的支付卡信息。</li>
+      </ul>
+      <p>
+        我们不会把你的探索进度上传到由我们运营的服务器。当前版本不提供账户、云端进度备份或跨设备进度同步。
+      </p>
+
+      <h2>3. 内容分发与网络信息</h2>
+      <p>
+        Chrono Atlas 从 <code>content.chronoatlas.cn</code> 下载内容清单、历史内容和图片。该服务使用位于香港的阿里云对象存储服务（OSS）和阿里云内容分发网络（CDN）。
+      </p>
+      <p>
+        设备请求内容时，阿里云及参与传输的网络服务提供商可能会处理常规技术信息，例如 IP 地址、请求的资源、请求日期与时间、HTTP 标头、响应状态，以及安全或诊断日志。这些信息用于传输和缓存内容、维护安全、防止滥用、衡量服务可靠性和排查故障。Chrono Atlas 不会将其用于广告、跨 App 跟踪或建立个人画像。
+      </p>
+      <p>
+        阿里云根据其适用协议和隐私文件处理这些信息。详情请参阅
+        <a href="https://www.alibabacloud.com/help/zh/legal/latest/privacy-policy">阿里云隐私政策</a>。
+      </p>
+
+      <h2>4. Apple 服务与 App 内购买</h2>
+      <p>Chrono Atlas 将 Apple 服务用于以下用途：</p>
+      <ul>
+        <li><strong>StoreKit：</strong>加载本地化商品信息、完成一次性 App 内购买、验证购买权益、在适用时支持家人共享，以及恢复符合条件的购买。</li>
+        <li><strong>App Store 更新检查：</strong>查询 Apple 公开的 App Store 信息，以判断 Chrono Atlas 是否有新版本。</li>
+      </ul>
+      <p>
+        Apple 会处理你的 Apple 账户、支付信息、交易数据以及相关 App Store 信息。Chrono Atlas 会收到商品信息，以及经验证的交易或权益状态，但不会收到你的完整支付卡信息。Apple 对这些信息的处理受
+        <a href="https://www.apple.com.cn/legal/privacy/">Apple 隐私政策</a>约束。
+      </p>
+
+      <h2>5. 照片与故事旁白</h2>
+      <ul>
+        <li>如果你选择保存图鉴卡片，Chrono Atlas 会请求仅添加照片的权限，并将所选图片写入系统照片。此功能不会读取你已有的照片。你可以在 iOS“设置”中更改照片权限。</li>
+        <li>故事旁白可能从 Chrono Atlas 的内容分发服务下载预先录制的音频。如果录制音频不可用，App 可能改用 Apple 的系统朗读功能。Chrono Atlas 不会录制你的声音、上传旁白文字，也不会为了播放旁白而把探索进度发送到内容分发服务。</li>
+      </ul>
+
+      <h2>6. 隐私政策与技术支持网站</h2>
+      <p>
+        Chrono Atlas 的隐私政策和技术支持页面托管在 GitHub Pages。App 不会在后台打开这些页面；只有当你主动打开链接时，浏览器才会连接 GitHub。GitHub 可能会按照
+        <a href="https://docs.github.com/zh/site-policy/privacy-policies/github-general-privacy-statement">GitHub 一般隐私声明</a>处理常规网页请求信息。
+      </p>
+
+      <h2>7. 技术支持通信</h2>
+      <p>
+        如果你联系技术支持，我们会收到你的电子邮件地址、邮件内容以及你主动提供的其他信息。我们会使用这些信息回复咨询、调查问题、保护服务，并在合理必要的期限内保留支持记录。请勿提供与问题无关的敏感个人信息。
+      </p>
+
+      <h2>8. 广告、分析、跟踪与信息出售</h2>
+      <p>
+        Chrono Atlas 不包含广告 SDK、第三方分析 SDK 或跨 App 跟踪。我们不会出售个人信息，也不会为了跨场景行为广告而共享个人信息。
+      </p>
+
+      <h2>9. 信息的使用方式</h2>
+      <p>本政策所述信息仅在以下用途所需的范围内使用：</p>
+      <ul>
+        <li>提供用户请求的 App 功能和历史内容。</li>
+        <li>处理、验证和恢复符合条件的 App 内购买。</li>
+        <li>维护安全、防止滥用和诊断技术故障。</li>
+        <li>回复技术支持和隐私请求。</li>
+        <li>遵守适用的法律义务。</li>
+      </ul>
+
+      <h2>10. 保留与删除</h2>
+      <ul>
+        <li>本地进度、偏好设置和缓存内容会保留在设备上，直到通过 App 或设备管理操作将其删除。卸载 Chrono Atlas 通常会删除 App 的本地数据。</li>
+        <li>Apple 会根据自身政策和法律义务保留购买与 App Store 信息。</li>
+        <li>阿里云可能会根据适用条款和我们的服务配置，在提供和保护服务所需的期限内保留运行、安全及内容传输日志。</li>
+        <li>为回复问题、保留支持记录、保护服务或履行法律义务，我们可能会在合理必要的期限内保留支持邮件。你可以联系我们请求删除，但法律或安全原因要求保留的信息除外。</li>
+      </ul>
+
+      <h2>11. 跨境处理</h2>
+      <p>
+        Apple、阿里云、GitHub 及其服务提供商可能会在你居住地以外的国家或地区处理信息。在法律要求的情况下，这些提供商会按照各自隐私文件中说明的方式，采用法律和合同保障措施处理跨境传输。
+      </p>
+
+      <h2>12. 你的选择与权利</h2>
+      <p>你可以：</p>
+      <ul>
+        <li>在不创建账户的情况下使用 App。</li>
+        <li>在 iOS“设置”中更改照片权限。</li>
+        <li>通过卸载 App 删除本地 App 数据。</li>
+        <li>联系我们查询技术支持通信，或行使适用法律赋予你的隐私权利。</li>
+      </ul>
+      <p>
+        Chrono Atlas 不维护服务端用户账户，也不会上传探索进度，因此我们通常无法识别或调取保存在你设备上的本地进度。
+      </p>
+
+      <h2>13. 儿童</h2>
+      <p>
+        Chrono Atlas 面向普通用户，并非专门面向 13 岁以下儿童。我们不会通过账户或广告系统有意收集儿童的个人信息。如果你认为儿童通过技术支持渠道发送了个人信息，请联系我们处理。
+      </p>
+
+      <h2>14. 安全</h2>
+      <p>
+        Chrono Atlas 的网络请求使用 HTTPS，并将远程内容限制在获准的 Chrono Atlas 域名。任何传输或存储方式都无法保证绝对安全，但我们会根据本政策所述信息和服务，采取合理的技术与组织措施。
+      </p>
+
+      <h2>15. 本政策的变更</h2>
+      <p>
+        当 App 功能、服务提供商或法律要求发生变化时，我们可能会更新本隐私政策。修订后的政策会发布在本页面，并更新生效日期。除非法律另有要求，重大变更仅在发布后适用。
+      </p>
+
+      <h2>16. 联系方式</h2>
+      <p>
+        如有隐私问题或请求，请发送电子邮件联系 YONGWEI RUAN：
+        <a href="mailto:echora.support@icloud.com">echora.support@icloud.com</a>。
+      </p>
+    </article>
   </main>
+  <script>
+    (() => {
+      const metadata = {
+        en: {
+          title: "Chrono Atlas Privacy Policy",
+          description: "Privacy Policy for the Chrono Atlas iOS app."
+        },
+        "zh-Hans": {
+          title: "Chrono Atlas 隐私政策",
+          description: "Chrono Atlas iOS App 隐私政策。"
+        }
+      };
+      const buttons = document.querySelectorAll("[data-language]");
+      const description = document.querySelector('meta[name="description"]');
+
+      function setLanguage(language) {
+        const selectedLanguage = metadata[language] ? language : "en";
+        document.documentElement.lang = selectedLanguage;
+        document.title = metadata[selectedLanguage].title;
+        description.content = metadata[selectedLanguage].description;
+        buttons.forEach((button) => {
+          button.setAttribute(
+            "aria-pressed",
+            String(button.dataset.language === selectedLanguage)
+          );
+        });
+        try {
+          window.localStorage.setItem("chrono-atlas-page-language", selectedLanguage);
+        } catch (_) {
+          // The selected language still applies for this page view.
+        }
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.dataset.language));
+      });
+      setLanguage(document.documentElement.lang);
+    })();
+  </script>
 </body>
 </html>
